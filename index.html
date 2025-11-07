@@ -380,6 +380,18 @@
             gap: 0.25rem;
         }
 
+        .doi-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+            border-bottom: 1px dotted transparent;
+        }
+
+        .doi-link:hover {
+            color: var(--secondary);
+            border-bottom-color: var(--secondary);
+        }
+
         /* Contact Section */
         .contact-content {
             display: grid;
@@ -786,7 +798,10 @@
                         <div class="publication-meta">
                             <span><i class="fas fa-book"></i> Nature Chemistry</span>
                             <span><i class="fas fa-calendar"></i> June 2023</span>
-                            <span><i class="fas fa-link"></i> DOI: 10.1038/s41557-023-01234-6</span>
+                            <span>
+                                <i class="fas fa-link"></i> 
+                                <a href="https://doi.org/10.1038/s41557-023-01234-6" target="_blank" class="doi-link">DOI: 10.1038/s41557-023-01234-6</a>
+                            </span>
                         </div>
                         <p>We report a new class of stimuli-responsive supramolecular cages that can reversibly assemble and disassemble in response to external triggers, enabling controlled encapsulation and release of guest molecules.</p>
                     </div>
@@ -800,7 +815,10 @@
                         <div class="publication-meta">
                             <span><i class="fas fa-book"></i> Journal of the American Chemical Society</span>
                             <span><i class="fas fa-calendar"></i> August 2022</span>
-                            <span><i class="fas fa-link"></i> DOI: 10.1021/jacs.2c04567</span>
+                            <span>
+                                <i class="fas fa-link"></i> 
+                                <a href="https://doi.org/10.1021/jacs.2c04567" target="_blank" class="doi-link">DOI: 10.1021/jacs.2c04567</a>
+                            </span>
                         </div>
                         <p>This study explores the mechanisms of chiral self-sorting in supramolecular polymers, revealing how molecular chirality influences the formation of one-dimensional nanostructures with controlled helicity.</p>
                     </div>
@@ -814,7 +832,10 @@
                         <div class="publication-meta">
                             <span><i class="fas fa-book"></i> Angewandte Chemie International Edition</span>
                             <span><i class="fas fa-calendar"></i> March 2021</span>
-                            <span><i class="fas fa-link"></i> DOI: 10.1002/anie.202107654</span>
+                            <span>
+                                <i class="fas fa-link"></i> 
+                                <a href="https://doi.org/10.1002/anie.202107654" target="_blank" class="doi-link">DOI: 10.1002/anie.202107654</a>
+                            </span>
                         </div>
                         <p>We developed a series of azobenzene-modified macrocycles whose binding affinity can be optically switched, enabling light-controlled molecular recognition and release processes.</p>
                     </div>
@@ -969,15 +990,25 @@
             });
         });
 
-        // Back to top button
+        // Back to top button functionality
         const backToTopButton = document.getElementById('backToTop');
         
+        // Show/hide button based on scroll position
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
                 backToTopButton.classList.add('visible');
             } else {
                 backToTopButton.classList.remove('visible');
             }
+        });
+
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Scroll animations for fade-in elements
